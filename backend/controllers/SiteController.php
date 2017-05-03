@@ -26,6 +26,10 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
+                        'actions' => ['index'],
+                        'allow' => true,
+                    ],
+                    [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -60,6 +64,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $app = Yii::getAlias('@app');
+        $webRoot = Yii::getAlias('@webroot');
+
         return $this->render('index');
     }
 
